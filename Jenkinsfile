@@ -17,7 +17,9 @@ pipeline {
     //    }
         stage('Configure nginx') {
             when { expression { return fileExists ('index-simlink') } }
-            sh 'sudo rm index-simlink'
+            steps {
+              sh 'sudo rm index-simlink'
+            }   
             steps {
                 
                 sh 'sudo mkdir -p /var/www/html/releases/${version}'
