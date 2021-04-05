@@ -9,7 +9,7 @@ pipeline {
         }    
         stage('Install nginx') {
             steps {
-                sh 'apt install nginx -y'    
+                sh 'sudo apt install nginx -y'    
             }
         }
         stage('Configure nginx') {
