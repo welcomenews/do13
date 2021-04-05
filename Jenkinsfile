@@ -7,14 +7,14 @@ pipeline {
                 userRemoteConfigs: [[url: 'git@github.com:welcomenews/do13.git']]])
            }    
         }    
-        stage('Install nginx') {
-            steps {
-                sh 'sudo apt install nginx -y'    
-            }
-        }
+    //    stage('Install nginx') {
+    //        steps {
+    //            sh 'sudo apt install nginx -y'    
+    //        }
+    //    }
         stage('Configure nginx') {
             steps {
-                sh 'mkdir -p /var/www/html/releases'
+                sh 'sudo mkdir -p /var/www/html/releases'
                 sh 'cp /var/lib/jenkins/workspace/install-nginx/index.html /var/www/html/releases/'
             }    
         }    
