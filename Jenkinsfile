@@ -9,7 +9,8 @@ pipeline {
         }    
         stage('Install nginx') {
             steps {
-                sh 'apt insatll nginx -y'    
+                sh 'apt update'
+                sh 'apt install nginx -y'    
             }
         }
         stage('Configure nginx') {
