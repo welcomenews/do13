@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage('Git clone') {
            steps {
+             script {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                 userRemoteConfigs: [[url: 'git@github.com:welcomenews/do13.git']]])
+             }    
            }    
         }    
         stage('Install nginx') {
