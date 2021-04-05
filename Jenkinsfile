@@ -15,7 +15,7 @@ pipeline {
         stage('Configure nginx') {
             steps {
                 sh 'sudo mkdir -p /var/www/html/releases'
-                sh 'cp /var/lib/jenkins/workspace/install-nginx/index.html /var/www/html/releases/'
+                sh 'sudo cp /var/lib/jenkins/workspace/install-nginx/index.html /var/www/html/releases/'
             }    
         }    
      }   
