@@ -1,3 +1,6 @@
+// Define variable
+def version = 'v0.1'
+
 pipeline {
     agent any
     stages {
@@ -14,11 +17,12 @@ pipeline {
     //    }
         stage('Configure nginx') {
             steps {
-                sh 'sudo mkdir -p /var/www/html/releases/v0.1'
-                sh 'sudo cp /var/lib/jenkins/workspace/install-nginx/index.html /var/www/html/releases/v0.1'
-                sh 'sudo ln -s releases/v0.1/ index-simlink'
+                sh 'sudo mkdir -p /var/www/html/releases/${version}'
+                sh 'sudo cp /var/lib/jenkins/workspace/install-nginx/index.html /var/www/html/releases/${version}'
+                sh 'sudo rm index-simlink'
+                sh 'sudo ln -s releases/${version}/ index-simlink'
                 sh 'sudo cp nginx.conf /etc/nginx/'
-                sh 'systemctl restart nginx.service'
+                sh 'sudo systemctl restart nginx.service'
             }    
         }    
      }   
