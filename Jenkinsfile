@@ -14,8 +14,9 @@ pipeline {
     //    }
         stage('Configure nginx') {
             steps {
-                sh 'sudo mkdir -p /var/www/html/releases'
-                sh 'sudo cp /var/lib/jenkins/workspace/install-nginx/index.html /var/www/html/releases/'
+                sh 'sudo mkdir -p /var/www/html/releases/v0.1'
+                sh 'sudo cp /var/lib/jenkins/workspace/install-nginx/index.html /var/www/html/releases/v0.1'
+                sh 'sudo ln -s releases/v0.1/ index-simlink'
             }    
         }    
      }   
