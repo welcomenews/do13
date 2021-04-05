@@ -19,8 +19,9 @@ pipeline {
             steps {
                 sh 'sudo mkdir -p /var/www/html/releases/${version}'
                 sh 'sudo cp /var/lib/jenkins/workspace/install-nginx/index.html /var/www/html/releases/${version}'
-                when { expression { return fileExists ('index-simlink') } }
+                if(fileExists("index-simlink")) {
                     sh 'sudo rm index-simlink'
+                }    
                 sh 'sudo ln -s releases/${version}/ index-simlink'
                 sh 'sudo cp nginx.conf /etc/nginx/'
                 sh 'sudo systemctl restart nginx.service'
