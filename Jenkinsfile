@@ -15,13 +15,15 @@ pipeline {
     //            sh 'sudo apt install nginx -y'    
     //        }
     //    }
-        stage('Configure nginx') {
+        stage('Remove index-simlink') {
             when { expression { return fileExists ('index-simlink') } }
             steps {
               sh 'sudo rm index-simlink'
-            }   
+            }  
+        }    
+            
+        stage('Configure nginx') {   
             steps {
-                
                 sh 'sudo mkdir -p /var/www/html/releases/${version}'
                 sh 'sudo cp /var/lib/jenkins/workspace/install-nginx/index.html /var/www/html/releases/${version}'
            //     sh (script: 'if (fileExists("index-simlink")) {
