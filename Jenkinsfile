@@ -1,5 +1,5 @@
 // Define variable
-def version = 'v0.2'
+def version = 'v0.1'
 
 pipeline {
     agent any
