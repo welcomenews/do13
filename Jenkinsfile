@@ -16,7 +16,7 @@ pipeline {
     //        }
     //    }
         stage('Remove index-simlink') {
-            when { expression { return fileExists ("index-simlink") } }
+            when { expression { return fileExists ('/var/www/html/index-simlink') } }
             steps {
               sh 'sudo rm -rf /var/www/html/index-simlink'
             }  
