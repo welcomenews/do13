@@ -26,7 +26,7 @@ pipeline {
         stage('Rewrate index-simlink') {
             when { expression { return fileExists ('/var/www/html/index-simlink') } }
             steps {
-                sh "sudo ln -sf /var/www/html/releases/$version /var/www/html/index-simlink"
+                sh "sudo ln -s -f /var/www/html/releases/$version/ /var/www/html/index-simlink"
                 sh 'sudo systemctl reload nginx.service'
             }  
         }
