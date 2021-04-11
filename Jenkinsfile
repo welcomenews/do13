@@ -33,7 +33,7 @@ pipeline {
         stage('Remove old versions\'s folders') {
             steps {
                 sh 'cd /var/www/html/releases/'
-                sh 'sudo ls -dtr /var/www/html/releases/*/ | head -n -5 | xargs -r rm -rf --'
+                sh 'ls -dtr /var/www/html/releases/*/ | head -n -5 | sudo xargs -r rm -rf --'
             }
         }
     }
