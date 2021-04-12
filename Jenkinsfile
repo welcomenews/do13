@@ -19,7 +19,7 @@ pipeline {
             steps {
                 sh "sudo mkdir -p /var/www/html/releases/$version"
                 sh "sudo cp /var/lib/jenkins/workspace/install-nginx/index.html /var/www/html/releases/$version"
-                sh "sudo chown jenkins:jenkins /var/www/html/releases/$version/index.html"
+                sh "sudo chown www-data:www-data /var/www/html/releases/$version/index.html"
       //        sh 'sudo cp nginx.conf /etc/nginx/'
             }    
         }
